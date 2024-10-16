@@ -11,7 +11,7 @@
 # - `cd` into the folder where you saved the file
 # - Execute the script by referencing the file, i.e.: `.\ScheduledTasksEnable.ps1 -scheduledTaskKeyword "Cloutility*"`
 #
-# 	> Asterisks (i.e. '*') in the `scheduledTaskKeyword` function as wildcards.
+#   > Asterisks (i.e. '*') in the `scheduledTaskKeyword` function as wildcards.
 #
 # If you get an error stating that the script is not digitally signed, execute the following command in PowerShell (without the quotes):
 # `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
@@ -31,9 +31,9 @@ Param($scheduledTaskKeyword)
 
 try {
     $scheduledTaskKeyword = AI_GetMsiProperty ProductName;
-	
-	# Reset MSI property-values to support multiple, consecutive executions
-	AI_SetMsiProperty ScheduledTasksEnable $false;
+    
+    # Reset MSI property-values to support multiple, consecutive executions
+    AI_SetMsiProperty ScheduledTasksEnable $false;
 } catch {}
 
 Write-Host "CUSTOM ACTION SCRIPT: ScheduledTasksEnable ($scheduledTaskKeyword)";
@@ -50,10 +50,10 @@ Write-Host "The following scheduled tasks have been found:" $tasks;
 
 Write-Host "Stop and disable the scheduled tasks";
 ForEach($task in $tasks){
-	# Write-Host "task: $task";
-	
-	# Enable the scheduled task to allow it to run again
-	Enable-ScheduledTask -TaskName $task.TaskName
+    # Write-Host "task: $task";
+
+    # Enable the scheduled task to allow it to run again
+    Enable-ScheduledTask -TaskName $task.TaskName
 }
 
 
@@ -65,9 +65,9 @@ ForEach($task in $tasks){
 # script execution has proceeded, we always return `$true` for this script
 
 try {
-	# If running under "Advanced Installer"
-	# Mark the process as success
-	AI_SetMsiProperty ScheduledTasksEnable "True";
+    # If running under "Advanced Installer"
+    # Mark the process as success
+    AI_SetMsiProperty ScheduledTasksEnable "True";
 } catch {}
 
 return $true;
