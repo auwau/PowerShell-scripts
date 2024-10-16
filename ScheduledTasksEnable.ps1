@@ -30,7 +30,7 @@ Param($scheduledTaskKeyword)
 # in a non-Advanced Installer environment where the said cmdlets aren't available
 
 try {
-	$scheduledTaskKeyword = AI_GetMsiProperty ProductName;
+    $scheduledTaskKeyword = AI_GetMsiProperty ProductName;
 	
 	# Reset MSI property-values to support multiple, consecutive executions
 	AI_SetMsiProperty ScheduledTasksEnable $false;
