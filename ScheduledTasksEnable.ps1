@@ -48,7 +48,7 @@ Write-Host "";
 $tasks = Get-ScheduledTask | Select TaskName | Where {($_.TaskName -like $scheduledTaskKeyword)}
 Write-Host "The following scheduled tasks have been found:" $tasks;
 
-Write-Host "Stop and disable the scheduled tasks";
+Write-Host "Enable the scheduled tasks";
 ForEach($task in $tasks){
     # Write-Host "task: $task";
 
