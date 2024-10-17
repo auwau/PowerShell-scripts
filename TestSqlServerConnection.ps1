@@ -12,15 +12,15 @@
 # - `cd` into the folder where you saved the file
 # - Run the script by referencing the file `.\TestSqlServerConnection.ps1`, and adding each script parameter as a `parameterName "value"`, e.g.:
 #
-# If you get an error stating that the script is not digitally signed, execute the following command in PowerShell (without the quotes):
-# `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
-#
 # Examples:
-# "Windows Authentication"
+# - "Windows Authentication":
 # `.\TestSqlServerConnection.ps1 -server ".\SQLEXPRESS" -port "" -sqlAuthorization "Trusted_Connection=yes;" -database "CloudPortal"`
 #
-# "SQL Server Authentication"
+# - "SQL Server Authentication":
 # `.\TestSqlServerConnection.ps1 -server ".\SQLEXPRESS" -port "" -sqlAuthorization "Uid=dbcreatorUser2;Pwd=Password123;" -database "CloudPortal"`
+#
+# If you get an error stating that the script is not digitally signed, execute the following command in PowerShell (without the quotes):
+# `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass`
 
 
 # Block for declaring the script parameters.
